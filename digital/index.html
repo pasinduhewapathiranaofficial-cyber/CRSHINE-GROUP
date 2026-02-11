@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRSHINE Digital Creations | Art Meets Tech</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <style>
+        body {
+            background-color: #050505;
+            color: white;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, #c084fc, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1rem;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+            display: flex;
+            align-items: flex-end;
+            padding: 1.5rem;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .floating-shape {
+            position: absolute;
+            filter: blur(80px);
+            z-index: -1;
+            animation: float 10s infinite alternate;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) scale(1);
+            }
+
+            100% {
+                transform: translateY(-50px) scale(1.1);
+            }
+        }
+    </style>
+</head>
+
+<body class="overflow-x-hidden">
+
+    <!-- Navbar -->
+    <nav class="absolute w-full top-0 z-50 p-6 flex justify-between items-center">
+        <a href="../index.html" class="flex items-center gap-2 text-white/80 hover:text-white transition-colors">
+            <i class="uil uil-arrow-left"></i> Hub
+        </a>
+        <div class="font-bold text-xl tracking-widest uppercase">Digital Creations</div>
+        <a href="#contact"
+            class="px-5 py-2 border border-purple-500 rounded-full hover:bg-purple-500 transition-all text-sm">Lets
+            Talk</a>
+    </nav>
+
+    <!-- Hero -->
+    <section class="min-h-screen flex flex-col justify-center items-center text-center relative px-4">
+        <div class="floating-shape bg-purple-600/30 w-96 h-96 top-20 left-20 rounded-full"></div>
+        <div class="floating-shape bg-pink-600/30 w-80 h-80 bottom-20 right-20 rounded-full"
+            style="animation-delay: -5s;"></div>
+
+        <h1 class="text-6xl md:text-8xl font-black mb-6 uppercase tracking-tighter">
+            We Design <br> <span class="gradient-text">Experiences</span>
+        </h1>
+        <p class="max-w-xl mx-auto text-gray-400 text-lg mb-10">
+            Merging artistic vision with digital precision. Branding, Web Design, and UI/UX that captivates.
+        </p>
+        <div class="animate-bounce">
+            <i class="uil uil-mouse-alt text-3xl text-purple-400"></i>
+        </div>
+    </section>
+
+    <!-- Portfolio Grid -->
+    <section class="max-w-7xl mx-auto px-4 py-20">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Item 1 -->
+            <div class="portfolio-item h-80 bg-gray-900 group">
+                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1964&auto=format&fit=crop"
+                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    alt="Work">
+                <div class="portfolio-overlay">
+                    <div>
+                        <h3 class="text-xl font-bold">Neon Branding</h3>
+                        <p class="text-xs text-purple-300">Identity Design</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Item 2 -->
+            <div class="portfolio-item h-80 bg-gray-900 group lg:col-span-2">
+                <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2070&auto=format&fit=crop"
+                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    alt="Work">
+                <div class="portfolio-overlay">
+                    <div>
+                        <h3 class="text-xl font-bold">Tech Interface</h3>
+                        <p class="text-xs text-purple-300">UI/UX Design</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Item 3 -->
+            <div class="portfolio-item h-80 bg-gray-900 group">
+                <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2070&auto=format&fit=crop"
+                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    alt="Work">
+                <div class="portfolio-overlay">
+                    <div>
+                        <h3 class="text-xl font-bold">Code Aesthetics</h3>
+                        <p class="text-xs text-purple-300">Development</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Item 4 -->
+            <div class="portfolio-item h-80 bg-gray-900 group">
+                <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=2064&auto=format&fit=crop"
+                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    alt="Work">
+                <div class="portfolio-overlay">
+                    <div>
+                        <h3 class="text-xl font-bold">Minimalist Art</h3>
+                        <p class="text-xs text-purple-300">Graphic Design</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Item 5 -->
+            <div class="portfolio-item h-80 bg-gray-900 group">
+                <img src="https://images.unsplash.com/photo-1558655146-d09347e0c708?q=80&w=1964&auto=format&fit=crop"
+                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    alt="Work">
+                <div class="portfolio-overlay">
+                    <div>
+                        <h3 class="text-xl font-bold">Abstract Concepts</h3>
+                        <p class="text-xs text-purple-300">3D Modeling</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center py-10 border-t border-white/10 text-gray-600 text-sm">
+        &copy; 2024 CRSHINE Digital Creations.
+    </footer>
+</body>
+
+</html>

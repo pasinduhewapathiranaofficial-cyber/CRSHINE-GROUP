@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ceylon Wanderlust | Experience Paradise</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            color: #1f2937;
+        }
+
+        h1,
+        h2,
+        h3,
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .hero-text-shadow {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body class="bg-stone-50">
+
+    <!-- Navbar -->
+    <nav class="absolute w-full z-50 px-8 py-6 flex justify-between items-center text-white">
+        <a href="../index.html"
+            class="uppercase tracking-widest text-xs font-bold hover:text-emerald-400 transition-colors">
+            <i class="uil uil-arrow-left"></i> Hub
+        </a>
+        <div class="text-2xl font-serif italic">Ceylon Wanderlust</div>
+        <a href="#book"
+            class="bg-white/20 backdrop-blur-sm hover:bg-white hover:text-emerald-900 border border-white/50 px-6 py-2 rounded-full transition-all text-sm uppercase tracking-wider">Plan
+            Trip</a>
+    </nav>
+
+    <!-- Hero -->
+    <header class="h-screen parallax relative flex items-center justify-center text-center text-white"
+        style="background-image: url('https://images.unsplash.com/photo-1546708773-e529a691883f?q=80&w=2070&auto=format&fit=crop');">
+        <div class="absolute inset-0 bg-black/30"></div>
+        <div class="relative z-10 px-4">
+            <span class="block text-sm md:text-base tracking-[0.3em] uppercase mb-4 animate-fade-in-up">Discover SRI
+                LANKA</span>
+            <h1 class="text-6xl md:text-8xl lg:text-9xl mb-6 hero-text-shadow animate-fade-in-up delay-200">
+                Wanderlust
+            </h1>
+            <p
+                class="max-w-xl mx-auto text-lg md:text-xl font-light italic mb-10 text-white/90 animate-fade-in-up delay-400">
+                "The pearl of the Indian Ocean awaits your journey."
+            </p>
+            <div class="animate-bounce delay-1000">
+                <i class="uil uil-angle-down text-4xl"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Introduction -->
+    <section class="py-24 px-4 max-w-5xl mx-auto text-center">
+        <span class="text-emerald-600 text-sm tracking-widest uppercase font-bold block mb-4">Our Vision</span>
+        <h2 class="text-4xl md:text-5xl text-stone-800 mb-8 leading-tight">
+            Curating unforgettable journeys through <br> <span class="italic text-emerald-700">pristine
+                landscapes</span>.
+        </h2>
+        <p class="text-stone-500 leading-loose max-w-3xl mx-auto text-lg">
+            From the misty hills of Ella to the golden coasts of Mirissa, Ceylon Wanderlust creates bespoke travel
+            experiences tailored to your soul. We don't just show you places; we help you feel them.
+        </p>
+    </section>
+
+    <!-- Destinations Grid -->
+    <section class="bg-white py-24">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-8">
+                <!-- Card 1 -->
+                <div class="group relative h-[500px] overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1588258524675-82c2c09ea831?q=80&w=1974&auto=format&fit=crop"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
+                    <div
+                        class="absolute bottom-8 left-8 text-white translate-y-4 group-hover:translate-y-0 transition-transform">
+                        <span class="text-xs tracking-widest uppercase">Ancient</span>
+                        <h3 class="text-4xl font-serif italic mt-2">Sigiriya</h3>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="group relative h-[500px] overflow-hidden md:mt-24">
+                    <img src="https://images.unsplash.com/photo-1586611311545-667746445524?q=80&w=2070&auto=format&fit=crop"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
+                    <div
+                        class="absolute bottom-8 left-8 text-white translate-y-4 group-hover:translate-y-0 transition-transform">
+                        <span class="text-xs tracking-widest uppercase">Coastal</span>
+                        <h3 class="text-4xl font-serif italic mt-2">Mirissa</h3>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="group relative h-[500px] overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1580698544975-d16c4765793e?q=80&w=1974&auto=format&fit=crop"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
+                    <div
+                        class="absolute bottom-8 left-8 text-white translate-y-4 group-hover:translate-y-0 transition-transform">
+                        <span class="text-xs tracking-widest uppercase">Highlands</span>
+                        <h3 class="text-4xl font-serif italic mt-2">Ella</h3>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="group relative h-[500px] overflow-hidden md:mt-24">
+                    <img src="https://images.unsplash.com/photo-1578564969240-1e5b1ac7c862?q=80&w=1974&auto=format&fit=crop"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
+                    <div
+                        class="absolute bottom-8 left-8 text-white translate-y-4 group-hover:translate-y-0 transition-transform">
+                        <span class="text-xs tracking-widest uppercase">Heritage</span>
+                        <h3 class="text-4xl font-serif italic mt-2">Kandy</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="book" class="py-24 bg-stone-900 text-white text-center">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl md:text-6xl font-serif italic mb-8">Begin Your Journey</h2>
+            <p class="text-stone-400 mb-10 max-w-2xl mx-auto">Let us craft the perfect itinerary for your Sri Lankan
+                adventure. Luxury, comfort, and authenticity await.</p>
+            <a href="#"
+                class="inline-block bg-emerald-700 hover:bg-emerald-600 px-10 py-4 text-white uppercase tracking-widest font-bold transition-all">Contact
+                an Agent</a>
+        </div>
+    </section>
+
+    <footer class="bg-stone-950 text-stone-500 py-12 text-center border-t border-white/5">
+        <div class="flex justify-center items-center gap-2 mb-4">
+            <span class="font-serif italic text-2xl text-white">Ceylon Wanderlust</span>
+        </div>
+        <p class="text-sm">&copy; 2024 CRSHINE Tourism Division. All rights reserved.</p>
+    </footer>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Parallax effect for destination images
+        gsap.utils.toArray('.group').forEach((section, i) => {
+            gsap.from(section, {
+                scrollTrigger: {
+                    trigger: section,
+                    start: "top 90%",
+                },
+                y: 100,
+                opacity: 0,
+                duration: 1,
+                ease: "power2.out"
+            });
+        });
+    </script>
+</body>
+
+</html>

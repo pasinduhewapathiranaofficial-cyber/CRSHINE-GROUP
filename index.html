@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRSHINE GROUP | Innovating Excellence</title>
+    <meta name="description"
+        content="CRSHINE GROUP - The central hub for DB Marketing, Digital Creations, Entertainment, and Ceylon Wanderlust.">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0a0a0a',
+                            light: '#ffffff',
+                            accent: '#3b82f6',
+                            purple: '#8b5cf6',
+                            gold: '#f59e0b',
+                            teal: '#14b8a6',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;700;900&display=swap"
+        rel="stylesheet">
+    <!-- Unicons -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <!-- GSAP for Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <style>
+        body {
+            background-color: #050505;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .glass-nav {
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .hero-gradient {
+            background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.15) 0%, rgba(5, 5, 5, 0) 50%);
+        }
+
+        .card-glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s ease;
+        }
+
+        .card-glass:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .text-gradient {
+            background: linear-gradient(to right, #ffffff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .text-gradient-gold {
+            background: linear-gradient(to right, #f59e0b, #fbbf24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .custom-cursor {
+            width: 20px;
+            height: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s;
+        }
+
+        .custom-cursor-dot {
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            /* IE and Edge */
+            scrollbar-width: none;
+            /* Firefox */
+        }
+    </style>
+</head>
+
+<body class="font-sans antialiased selection:bg-blue-500 selection:text-white">
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor hidden md:block"></div>
+    <div class="custom-cursor-dot hidden md:block"></div>
+
+    <!-- Navigation -->
+    <nav class="glass-nav fixed w-full z-50 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="flex items-center gap-2 group">
+                        <div
+                            class="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center text-white font-bold text-xl group-hover:scale-110 transition-transform">
+                            C
+                        </div>
+                        <span class="font-display font-bold text-2xl tracking-wider text-white">CRSHINE</span>
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html"
+                            class="text-white hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a>
+                        <a href="marketing/index.html"
+                            class="text-gray-300 hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Marketing</a>
+                        <a href="digital/index.html"
+                            class="text-gray-300 hover:text-purple-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Digital</a>
+                        <a href="entertainment/index.html"
+                            class="text-gray-300 hover:text-pink-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Entertainment</a>
+                        <a href="tourism/index.html"
+                            class="text-gray-300 hover:text-green-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Tourism</a>
+                        <a href="#contact"
+                            class="bg-white text-black hover:bg-gray-200 px-4 py-2 rounded-full text-sm font-bold transition-all transform hover:scale-105">Contact
+                            Us</a>
+                    </div>
+                </div>
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button"
+                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-none"
+                        aria-controls="mobile-menu" aria-expanded="false" id="mobile-menu-btn">
+                        <span class="sr-only">Open main menu</span>
+                        <i class="uil uil-bars text-3xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div class="md:hidden hidden bg-black/95 backdrop-blur-xl absolute w-full border-b border-gray-800"
+            id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="text-white block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="marketing/index.html"
+                    class="text-gray-300 hover:text-blue-400 block px-3 py-2 rounded-md text-base font-medium">DB
+                    Marketing</a>
+                <a href="digital/index.html"
+                    class="text-gray-300 hover:text-purple-400 block px-3 py-2 rounded-md text-base font-medium">Digital
+                    Creations</a>
+                <a href="entertainment/index.html"
+                    class="text-gray-300 hover:text-pink-400 block px-3 py-2 rounded-md text-base font-medium">Entertainment</a>
+                <a href="tourism/index.html"
+                    class="text-gray-300 hover:text-green-400 block px-3 py-2 rounded-md text-base font-medium">Ceylon
+                    Wanderlust</a>
+                <a href="#contact"
+                    class="text-white bg-blue-600 block px-3 py-2 rounded-md text-base font-medium text-center mt-4">Contact
+                    Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 w-full h-full">
+            <div class="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/20 rounded-full blur-[120px] animate-pulse-slow">
+            </div>
+            <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-600/20 rounded-full blur-[120px] animate-pulse-slow"
+                style="animation-delay: 2s;"></div>
+        </div>
+
+        <div class="container mx-auto px-4 relative z-10 text-center">
+            <h2 class="text-blue-500 font-medium tracking-[0.2em] uppercase mb-4 opacity-0 text-sm md:text-base"
+                id="hero-subtitle">Welcome
+                to the Future</h2>
+            <h1 class="font-display text-4xl sm:text-6xl md:text-7xl lg:text-9xl font-black mb-6 md:mb-8 leading-tight tracking-tight opacity-0"
+                id="hero-title">
+                CRSHINE <br>
+                <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500">GROUP</span>
+            </h1>
+            <p class="max-w-2xl mx-auto text-base md:text-xl text-gray-400 mb-8 md:mb-12 opacity-0 px-4" id="hero-desc">
+                The central hub for innovation in Marketing, Digital Arts, Entertainment, and Tourism. We redefine
+                excellence across industries.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center opacity-0" id="hero-btns">
+                <a href="#brands"
+                    class="group relative px-8 py-4 bg-white text-black font-bold rounded-full overflow-hidden w-full sm:w-auto">
+                    <span class="relative z-10 group-hover:text-white transition-colors duration-300">Explore
+                        Brands</span>
+                    <div
+                        class="absolute inset-0 bg-black transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 ease-out">
+                    </div>
+                </a>
+                <a href="#contact"
+                    class="px-8 py-4 border border-white/20 rounded-full hover:bg-white/10 transition-colors backdrop-blur-sm w-full sm:w-auto">
+                    Get in Touch
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div
+            class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 opacity-70 animate-bounce">
+            <span class="text-xs tracking-widest uppercase text-gray-500">Scroll</span>
+            <i class="uil uil-arrow-down text-2xl"></i>
+        </div>
+    </section>
+
+    <!-- Video Showcase Section (9:16) -->
+    <section id="showcase" class="py-16 md:py-24 bg-[#050505] relative border-t border-white/5">
+        <div class="container mx-auto px-4 mb-8 md:mb-12 flex justify-between items-end">
+            <div>
+                <h2 class="font-display text-4xl md:text-5xl font-bold mb-2">Visual <span
+                        class="text-purple-500">Stories</span></h2>
+                <p class="text-gray-400">Experience the vibe of CRSHINE in full screen.</p>
+            </div>
+            <div class="hidden md:flex gap-4">
+                <button id="scroll-left"
+                    class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/10 transition-colors">
+                    <i class="uil uil-angle-left text-2xl"></i>
+                </button>
+                <button id="scroll-right"
+                    class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/10 transition-colors">
+                    <i class="uil uil-angle-right text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Scroll Container -->
+        <div class="relative w-full">
+            <div id="video-scroller"
+                class="flex overflow-x-auto gap-6 pb-8 px-4 md:px-0 container mx-auto snap-x snap-mandatory scrollbar-hide"
+                style="scrollbar-width: none; -ms-overflow-style: none;">
+
+                <!-- Reel 1: Marketing -->
+                <div
+                    class="flex-shrink-0 w-[80vw] sm:w-80 md:w-[22rem] aspect-[9/16] bg-gray-900 rounded-3xl relative overflow-hidden group snap-center cursor-pointer border border-white/10 hover:border-blue-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/20">
+                    <!-- Placeholder for Video -->
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"
+                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-40"
+                        alt="Marketing Reel">
+                    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/90"></div>
+
+                    <!-- Play Button -->
+                    <div
+                        class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform scale-50 group-hover:scale-100">
+                        <div
+                            class="w-16 h-16 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20">
+                            <i class="uil uil-play text-3xl text-white ml-1"></i>
+                        </div>
+                    </div>
+
+                    <!-- Content -->
+                    <div
+                        class="absolute bottom-0 left-0 p-6 w-full transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span
+                                class="bg-blue-600/80 backdrop-blur-sm text-xs font-bold px-2 py-1 rounded text-white">MARKETING</span>
+                            <span class="text-xs text-gray-300"><i class="uil uil-clock"></i> 0:45</span>
+                        </div>
+                        <h3 class="font-display text-xl font-bold leading-tight mb-1">Data Driven Success</h3>
+                        <p class="text-sm text-gray-400 line-clamp-2">See how we transformed local brands into global
+                            icons.</p>
+                    </div>
+                </div>
+
+                <!-- Reel 2: Digital -->
+                <div
+                    class="flex-shrink-0 w-[80vw] sm:w-80 md:w-[22rem] aspect-[9/16] bg-gray-900 rounded-3xl relative overflow-hidden group snap-center cursor-pointer border border-white/10 hover:border-purple-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/20">
+                    <img src="https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?q=80&w=2070&auto=format&fit=crop"
+                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-40"
+                        alt="Digital Reel">
+                    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/90"></div>
+
+                    <div
+                        class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform scale-50 group-hover:scale-100">
+                        <div
+                            class="w-16 h-16 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20">
+                            <i class="uil uil-play text-3xl text-white ml-1"></i>
+                        </div>
+                    </div>
+
+                    <div
+                        class="absolute bottom-0 left-0 p-6 w-full transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span
+                                class="bg-purple-600/80 backdrop-blur-sm text-xs font-bold px-2 py-1 rounded text-white">DESIGN</span>
+                            <span class="text-xs text-gray-300"><i class="uil uil-clock"></i> 0:30</span>
+                        </div>
+                        <h3 class="font-display text-xl font-bold leading-tight mb-1">Neon Aesthetics</h3>
+                        <p class="text-sm text-gray-400 line-clamp-2">Behind the scenes of our latest 3D web experience.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Reel 3: Entertainment -->
+                <div
+                    class="flex-shrink-0 w-[80vw] sm:w-80 md:w-[22rem] aspect-[9/16] bg-gray-900 rounded-3xl relative overflow-hidden group snap-center cursor-pointer border border-white/10 hover:border-pink-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-pink-500/20">
+                    <img src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?q=80&w=2070&auto=format&fit=crop"
+                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-40"
+                        alt="Entertainment Reel">
+                    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/90"></div>
+
+                    <div
+                        class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform scale-50 group-hover:scale-100">
+                        <div
+                            class="w-16 h-16 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20">
+                            <i class="uil uil-play text-3xl text-white ml-1"></i>
+                        </div>
+                    </div>
+
+                    <div
+                        class="absolute bottom-0 left-0 p-6 w-full transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span
+                                class="bg-pink-600/80 backdrop-blur-sm text-xs font-bold px-2 py-1 rounded text-white">EVENTS</span>
+                            <span class="text-xs text-gray-300"><i class="uil uil-clock"></i> 1:15</span>
+                        </div>
+                        <h3 class="font-display text-xl font-bold leading-tight mb-1">Midnight Concert</h3>
+                        <p class="text-sm text-gray-400 line-clamp-2">Highlights from the biggest music festival of the
+                            year.</p>
+                    </div>
+                </div>
+
+                <!-- Reel 4: Tourism -->
+                <div
+                    class="flex-shrink-0 w-[80vw] sm:w-80 md:w-[22rem] aspect-[9/16] bg-gray-900 rounded-3xl relative overflow-hidden group snap-center cursor-pointer border border-white/10 hover:border-green-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-green-500/20">
+                    <img src="https://images.unsplash.com/photo-1586611311545-667746445524?q=80&w=2070&auto=format&fit=crop"
+                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-40"
+                        alt="Tourism Reel">
+                    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/90"></div>
+
+                    <div
+                        class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform scale-50 group-hover:scale-100">
+                        <div
+                            class="w-16 h-16 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20">
+                            <i class="uil uil-play text-3xl text-white ml-1"></i>
+                        </div>
+                    </div>
+
+                    <div
+                        class="absolute bottom-0 left-0 p-6 w-full transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span
+                                class="bg-green-600/80 backdrop-blur-sm text-xs font-bold px-2 py-1 rounded text-white">TRAVEL</span>
+                            <span class="text-xs text-gray-300"><i class="uil uil-clock"></i> 0:50</span>
+                        </div>
+                        <h3 class="font-display text-xl font-bold leading-tight mb-1">Ella Odyssey</h3>
+                        <p class="text-sm text-gray-400 line-clamp-2">A train ride through the misty mountains of Sri
+                            Lanka.</p>
+                    </div>
+                </div>
+                <!-- Reel 5: More -->
+                <div
+                    class="flex-shrink-0 w-[80vw] sm:w-80 md:w-[22rem] aspect-[9/16] bg-gray-800 rounded-3xl relative overflow-hidden group snap-center cursor-pointer border border-white/5 hover:border-white/20 transition-all duration-500 flex items-center justify-center">
+                    <div class="text-center p-6">
+                        <div
+                            class="w-16 h-16 bg-white/5 rounded-full flex items-center justify-center mb-4 mx-auto group-hover:bg-white/10 transition">
+                            <i class="uil uil-arrow-right text-3xl"></i>
+                        </div>
+                        <h3 class="font-display text-xl font-bold">View All Stories</h3>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section id="brands" class="py-24 relative">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-20">
+                <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">Our <span
+                        class="text-blue-500">Ecosystem</span></h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+                <!-- Brand 1: Marketing -->
+                <a href="marketing/index.html"
+                    class="brand-card group block relative h-80 md:h-96 rounded-3xl overflow-hidden card-glass">
+                    <div class="absolute inset-0 bg-gradient-to-br from-blue-900/40 to-black z-0"></div>
+                    <div
+                        class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-40 group-hover:opacity-60 transition-opacity duration-500 transform group-hover:scale-110">
+                    </div>
+                    <div class="relative z-10 p-8 h-full flex flex-col justify-end">
+                        <div class="mb-auto">
+                            <i class="uil uil-bullseye text-4xl text-blue-400"></i>
+                        </div>
+                        <h3 class="font-display text-3xl font-bold mb-2">CRSHINE DB Marketing</h3>
+                        <p
+                            class="text-gray-300 text-sm md:text-base translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                            Data-driven strategies to elevate your brand presence and market reach.</p>
+                        <div class="mt-4 flex items-center text-blue-400 font-semibold text-sm">
+                            Visit Site <i
+                                class="uil uil-arrow-right ml-2 group-hover:translate-x-2 transition-transform"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Brand 2: Digital Creations -->
+                <a href="digital/index.html"
+                    class="brand-card group block relative h-80 md:h-96 rounded-3xl overflow-hidden card-glass">
+                    <div class="absolute inset-0 bg-gradient-to-br from-purple-900/40 to-black z-0"></div>
+                    <div
+                        class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=1974&auto=format&fit=crop')] bg-cover bg-center opacity-40 group-hover:opacity-60 transition-opacity duration-500 transform group-hover:scale-110">
+                    </div>
+                    <div class="relative z-10 p-8 h-full flex flex-col justify-end">
+                        <div class="mb-auto">
+                            <i class="uil uil-layer-group text-4xl text-purple-400"></i>
+                        </div>
+                        <h3 class="font-display text-3xl font-bold mb-2">CRSHINE Digital Creations</h3>
+                        <p
+                            class="text-gray-300 text-sm md:text-base translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                            Modern web design, graphic mastery, and digital aesthetics.</p>
+                        <div class="mt-4 flex items-center text-purple-400 font-semibold text-sm">
+                            Visit Site <i
+                                class="uil uil-arrow-right ml-2 group-hover:translate-x-2 transition-transform"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Brand 3: Entertainment -->
+                <a href="entertainment/index.html"
+                    class="brand-card group block relative h-80 md:h-96 rounded-3xl overflow-hidden card-glass">
+                    <div class="absolute inset-0 bg-gradient-to-br from-pink-900/40 to-black z-0"></div>
+                    <div
+                        class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-40 group-hover:opacity-60 transition-opacity duration-500 transform group-hover:scale-110">
+                    </div>
+                    <div class="relative z-10 p-8 h-full flex flex-col justify-end">
+                        <div class="mb-auto">
+                            <i class="uil uil-music text-4xl text-pink-400"></i>
+                        </div>
+                        <h3 class="font-display text-3xl font-bold mb-2">CRSHINE Entertainment</h3>
+                        <p
+                            class="text-gray-300 text-sm md:text-base translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                            Events, music, and cinematic experiences that captivate.</p>
+                        <div class="mt-4 flex items-center text-pink-400 font-semibold text-sm">
+                            Visit Site <i
+                                class="uil uil-arrow-right ml-2 group-hover:translate-x-2 transition-transform"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Brand 4: Tourism -->
+                <a href="tourism/index.html"
+                    class="brand-card group block relative h-80 md:h-96 rounded-3xl overflow-hidden card-glass">
+                    <div class="absolute inset-0 bg-gradient-to-br from-green-900/40 to-black z-0"></div>
+                    <div
+                        class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1588258524675-82c2c09ea831?q=80&w=1974&auto=format&fit=crop')] bg-cover bg-center opacity-40 group-hover:opacity-60 transition-opacity duration-500 transform group-hover:scale-110">
+                    </div>
+                    <div class="relative z-10 p-8 h-full flex flex-col justify-end">
+                        <div class="mb-auto">
+                            <i class="uil uil-plane-departure text-4xl text-green-400"></i>
+                        </div>
+                        <h3 class="font-display text-3xl font-bold mb-2">Ceylon Wanderlust</h3>
+                        <p
+                            class="text-gray-300 text-sm md:text-base translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                            Experiencing the paradise of Sri Lanka like never before.</p>
+                        <div class="mt-4 flex items-center text-green-400 font-semibold text-sm">
+                            Visit Site <i
+                                class="uil uil-arrow-right ml-2 group-hover:translate-x-2 transition-transform"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About/Vision Strip -->
+    <section class="py-20 bg-white/5 border-y border-white/5">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-12">
+                <div class="md:w-1/2">
+                    <h2 class="font-display text-3xl md:text-4xl font-bold mb-6">Redefining the <br><span
+                            class="text-gradient-gold">Standard of Excellence</span></h2>
+                    <p class="text-gray-400 leading-relaxed mb-6">
+                        CRSHINE GROUP is more than a conglomerate; it's a vision brought to life. From data-driven
+                        marketing to immersive travel experiences, we are dedicated to delivering "supiri" quality in
+                        everything we do.
+                    </p>
+                    <div class="flex gap-8">
+                        <div>
+                            <span class="block text-3xl font-bold text-white">4+</span>
+                            <span class="text-sm text-gray-500">Major Brands</span>
+                        </div>
+                        <div>
+                            <span class="block text-3xl font-bold text-white">100%</span>
+                            <span class="text-sm text-gray-500">Client Satisfaction</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <!-- Abstract visual representation -->
+                    <div class="relative w-64 h-64 md:w-80 md:h-80">
+                        <div class="absolute inset-0 border-2 border-dashed border-white/20 rounded-full animate-spin-slow"
+                            style="animation-duration: 20s;"></div>
+                        <div class="absolute inset-4 border border-white/10 rounded-full animate-spin-slow"
+                            style="animation-duration: 15s; animation-direction: reverse;"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div
+                                class="w-20 h-20 bg-gradient-to-tr from-blue-500 to-purple-500 rounded-xl rotate-45 blur-lg absolute animate-pulse">
+                            </div>
+                            <div
+                                class="w-20 h-20 bg-white/10 backdrop-blur-md rounded-xl rotate-45 border border-white/20 relative z-10 flex items-center justify-center">
+                                <span class="text-3xl font-bold">CG</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 relative overflow-hidden">
+        <div class="container mx-auto px-4 max-w-4xl relative z-10">
+            <div class="card-glass rounded-3xl p-8 md:p-12 text-center">
+                <h2 class="font-display text-3xl md:text-5xl font-bold mb-6">Ready to Collaborate?</h2>
+                <p class="text-gray-400 mb-10">Whether you need marketing, digital design, entertainment, or a getaway,
+                    we are here to serve you.</p>
+
+                <form class="space-y-4 max-w-lg mx-auto text-left">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-gray-500 mb-1">Name</label>
+                            <input type="text"
+                                class="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors"
+                                placeholder="Your Name">
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-gray-500 mb-1">Email</label>
+                            <input type="email"
+                                class="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors"
+                                placeholder="your@email.com">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-gray-500 mb-1">Message</label>
+                        <textarea rows="4"
+                            class="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors"
+                            placeholder="How can we help?"></textarea>
+                    </div>
+                    <button
+                        class="w-full bg-white text-black font-bold py-4 rounded-lg hover:bg-gray-200 transition-colors">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-white/10 py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="text-center md:text-left">
+                    <h3 class="font-display font-bold text-2xl text-white">CRSHINE GROUP</h3>
+                    <p class="text-gray-500 text-sm mt-1">&copy; 2024 CRSHINE Group. All rights reserved.</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors"><i
+                            class="uil uil-facebook-f text-xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors"><i
+                            class="uil uil-twitter text-xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors"><i
+                            class="uil uil-instagram text-xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors"><i
+                            class="uil uil-linkedin text-xl"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Main JS -->
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Inline script for immediate GSAP interactions
+        document.addEventListener('DOMContentLoaded', () => {
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Hero Animations
+            const tl = gsap.timeline();
+            tl.to("#hero-subtitle", { y: 0, opacity: 1, duration: 1, ease: "power3.out" })
+                .to("#hero-title", { y: 0, opacity: 1, duration: 1, ease: "power3.out" }, "-=0.7")
+                .to("#hero-desc", { y: 0, opacity: 1, duration: 1, ease: "power3.out" }, "-=0.7")
+                .to("#hero-btns", { y: 0, opacity: 1, duration: 1, ease: "power3.out" }, "-=0.7");
+
+            // Scroll Triggers for Brand Cards
+            gsap.utils.toArray('.brand-card').forEach((card, i) => {
+                gsap.from(card, {
+                    scrollTrigger: {
+                        trigger: card,
+                        start: "top 85%",
+                    },
+                    y: 50,
+                    opacity: 0,
+                    duration: 0.8,
+                    delay: i * 0.1,
+                    ease: "power3.out"
+                });
+            });
+
+            // Mobile Menu Toggle
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+
+            // Custom Cursor
+            const cursor = document.querySelector('.custom-cursor');
+            const cursorDot = document.querySelector('.custom-cursor-dot');
+
+            document.addEventListener('mousemove', (e) => {
+                cursorDot.style.left = e.clientX + 'px';
+                cursorDot.style.top = e.clientY + 'px';
+
+                cursor.animate({
+                    left: e.clientX + 'px',
+                    top: e.clientY + 'px'
+                }, { duration: 500, fill: "forwards" });
+            });
+
+            // Video Scroller Buttons
+            const scroller = document.getElementById('video-scroller');
+            const scrollLeftBtn = document.getElementById('scroll-left');
+            const scrollRightBtn = document.getElementById('scroll-right');
+
+            if (scroller && scrollLeftBtn && scrollRightBtn) {
+                scrollLeftBtn.addEventListener('click', () => {
+                    scroller.scrollBy({ left: -320, behavior: 'smooth' });
+                });
+
+                scrollRightBtn.addEventListener('click', () => {
+                    scroller.scrollBy({ left: 320, behavior: 'smooth' });
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
